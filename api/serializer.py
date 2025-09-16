@@ -1,7 +1,7 @@
-from rest_framework import serializer
+from rest_framework import serializers
 from .models import Cotizaciones
 
-class CotizacionesSerializer(serializer.ModelSerializer):
+class CotizacionesSerializer(serializers.ModelSerializer):
   class Meta:
     model = Cotizaciones
     fields = '__all__'
