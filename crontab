@@ -1,0 +1,1 @@
+30 * * * 1-6 cd /app && /usr/local/bin/python3 manage.py scrapping >> /var/log/cron.log 2>&1 && echo "ACTUALIZADO: $(date)" >> /var/log/cron.log

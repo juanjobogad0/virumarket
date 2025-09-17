@@ -2,6 +2,8 @@ asgiref==3.9.1
 Django==5.2.6
 djangorestframework==3.16.1
 greenlet==3.2.4
+gunicorn==23.0.0
+packaging==25.0
 playwright==1.55.0
 psycopg2-binary==2.9.10
 pyee==13.0.0

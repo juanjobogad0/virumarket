@@ -1,0 +1,41 @@
+services:
+  dolar:
+    build: 
+      context: .
+      target: django
+    container_name: dolar_app
+    ports:
+     - "8000:8000"
+    volumes:
+    - ./diario.json:/app/diario.json 
+    depends_on:
+     - db
+    restart: always
+
+  cron-job:
+    build: 
+      context: .
+      target: cron
+    container_name: cron
+    volumes:
+      - ./diario.json:/app/diario.json
+      - ./logs:/var/log/cron
+    depends_on:
+    - dolar
+    - db
+    restart: always
+
+  db:
+    image: postgres
+    container_name: cotizacion-db    
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: cotizaciones
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: always
+
+volumes:
+  postgres_data:
+
