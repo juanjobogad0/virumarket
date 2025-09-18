@@ -1,0 +1,43 @@
+.card {  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 325px;
+
+  border: var(--border-car);
+  border-top: solid 1px var(--highlight);
+  background: var(--gradiant);
+  color: var(--text);
+
+}
+
+.card:hover {
+  background: var(--gradiant-hover);
+}
+
+.casa {
+    font: var(--font-3);
+    color: hsl(0, 0%, 100%);
+}
+
+.thead {
+  font-size: 0.5rem;
+  color: var(--text-muted);
+}
+
+.tbody {
+  font: var(--font-1);
+  color: var(--text);
+}
+
+article {
+  margin: auto
+}
+
+.quitar {
+  min-height: 100dvh;
+  align-content: center;
+}
+
+
