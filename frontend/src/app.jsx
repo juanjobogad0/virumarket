@@ -6,8 +6,6 @@ export default function App () {
   return (
     <Container className='m-auto quitar'>
       <Cards />
-      <Cards />
-      <Cards />
     </Container>
 
   )
