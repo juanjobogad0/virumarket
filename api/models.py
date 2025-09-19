@@ -17,7 +17,7 @@ class Cotizaciones(models.Model):
     casa = models.ForeignKey(CasaDeCambio, on_delete=models.PROTECT)
     compra = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
     venta = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True)
-    fecha = models.DateTimeField(auto_now_add=True)
+    fecha = models.DateTimeField(auto_now_add=True, editable=False)
     mensaje_error = models.TextField(null=True, blank=True)
 
 

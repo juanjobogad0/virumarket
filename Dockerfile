@@ -9,8 +9,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 FROM base AS django 
 COPY . .
 EXPOSE 8000
-RUN manage.py makemigrations
-RUN manage.py migrate
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "cotizacion.wsgi:application"]
 
 #CRON 

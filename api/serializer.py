@@ -8,6 +8,17 @@ class CasaDeCambioSerializer(serializers.ModelSerializer):
 
 
 class CotizacionesSerializer(serializers.ModelSerializer):
+  casa_cambio = serializers.CharField(source='casa.nombre', read_only=True)
+  casa_id = serializers.CharField(source='casa.id', read_only=True)
+
   class Meta:
     model = Cotizaciones
-    fields = '__all__'
+    fields = [
+        "id",
+        "compra",
+        "venta",
+        "fecha",
+        "mensaje_error",
+        "casa_id",
+        "casa_cambio"
+    ]
