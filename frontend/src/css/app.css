@@ -62,3 +62,12 @@ background: var(--bg-dark);
 color: var(--text);
 
 }
+
+.update {
+  font-size: 1.25rem;
+}
+
+.quitar {
+  min-height: 100dvh;
+  /* align-content: center; */
+}
