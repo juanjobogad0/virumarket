@@ -1,24 +1,30 @@
-.card {  
+
+article {
+  margin: auto
+}
+
+.cotizaciones-card {  
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
-  max-width: 325px;
+  max-width: 350px;
+  min-width: 100%;
 
   border: var(--border-car);
   border-top: solid 1px var(--highlight);
   background: var(--gradiant);
   color: var(--text);
-
 }
 
-.card:hover {
+.cotizaciones-card:hover {
   background: var(--gradiant-hover);
 }
 
+
 .casa {
-    font: var(--font-3);
-    color: hsl(0, 0%, 100%);
+  min-width: 10rem;
+  font: var(--font-3);
+  color: hsl(0, 0%, 100%);
 }
 
 .thead {
@@ -31,8 +37,5 @@
   color: var(--text);
 }
 
-article {
-  margin: auto
-}
 
 

@@ -50,6 +50,7 @@ body.light {
 
 * {
   box-sizing: border-box;
+  margin: 0;
 }
 
 html {
@@ -63,11 +64,28 @@ color: var(--text);
 
 }
 
-.update {
-  font-size: 1.25rem;
+header {
+min-height: 20dvh;
 }
 
+
+.titulos {
+  font-size: 2rem;
+  padding: 0.5rem;
+}
+
+.update {
+  font: var(--font-5)
+}
+
+
 .quitar {
-  min-height: 100dvh;
-  /* align-content: center; */
+display: flex;
+flex-direction: column;
+max-width: 100%;
+min-height: 50dvh;
+justify-content: space-between;
+
+
+  
 }

@@ -22,11 +22,11 @@ export function Cards ({ onUpdate }) {
     <>
       {casas.map((item) => (
 
-        <article key={item.id} className='p-1 card mb-4'>
+        <div key={item.id} className='cotizaciones-card'>
           <aside className='casa'>{NombresCasas[item.casa_cambio] ?? item.casa_cambio}</aside>
-          <table className='text-center'>
+          <table className='text-center w-100'>
             <thead>
-              <tr className='m-0 thead'>
+              <tr className='thead'>
                 <th>Compra</th>
                 <th>Venta</th>
               </tr>
@@ -38,7 +38,7 @@ export function Cards ({ onUpdate }) {
               </tr>
             </tbody>
           </table>
-        </article>
+        </div>
 
       ))}
 

@@ -6,18 +6,23 @@ import Container from 'react-bootstrap/Container'
 export default function App () {
   const [update, setUpdate] = useState(null)
   return (
-    <>
-      <h1 className='text-center'>🇺🇸 COTIZACIONES 🇺🇸</h1>
-      <Container className='m-auto quitar'>
+    <main>
+      <header>
+        <h1 className='text-center titulos'>🇺🇸 Cotizaciones 🇺🇸</h1>
         <div className='text-center update'>
           {update && (
             <p>Ultima Actualizacion: {new Date(update).toLocaleString('es-ES')}</p>
           )}
         </div>
+      </header>
 
-        <Cards onUpdate={setUpdate} />
+      <Container>
+        <div className='quitar'>
+          <Cards onUpdate={setUpdate} />
+        </div>
+
       </Container>
-    </>
+    </main>
 
   )
 }
