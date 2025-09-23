@@ -19,6 +19,7 @@ class Command(BaseCommand):
               compra = None
               venta = None
               mensaje_error = str(e)
+              self.stdout.write(self.style.ERROR(f"{casa} -> {mensaje_error}"))
             
             casa_obj, _ = CasaDeCambio.objects.get_or_create(nombre=casa)
             

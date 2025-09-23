@@ -9,11 +9,14 @@ article {
   align-items: center;
   max-width: 350px;
   min-width: 100%;
+  border-radius: 5px;
+  padding: 0.6rem;
 
   border: var(--border-car);
   border-top: solid 1px var(--highlight);
   background: var(--gradiant);
   color: var(--text);
+  box-shadow: var(--shadow);
 }
 
 .cotizaciones-card:hover {
@@ -23,8 +26,8 @@ article {
 
 .casa {
   min-width: 10rem;
-  font: var(--font-3);
-  color: hsl(0, 0%, 100%);
+  font: var(--font-2);
+  color: var(--text)
 }
 
 .thead {
@@ -37,5 +40,27 @@ article {
   color: var(--text);
 }
 
+td {
+  color: var(--text);
+}
+
+@media screen and (min-width:560px) {
+.cotizaciones-card {  
+
+  max-width: 500px;
+  padding: 1rem;
+  margin-top: 1rem;
+  }
+
+  .casa {
+  min-width: 12rem;
+  font-size: 1.15rem;
+}
+
+.tbody {
+  font-size: 1.25rem;
+}
+  
+}
 
 

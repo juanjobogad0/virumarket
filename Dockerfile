@@ -33,7 +33,7 @@ RUN apt-get update && \
         libpango-1.0-0 \
         libpangocairo-1.0-0 \
     && rm -rf /var/lib/apt/lists/*
-RUN pip install playwright && playwright install chromium
+RUN pip install playwright && playwright install --with-deps chromium
 COPY . .
 COPY crontab /etc/cron.d/cotizaciones-cron
 RUN chmod 0644 /etc/cron.d/cotizaciones-cron && \

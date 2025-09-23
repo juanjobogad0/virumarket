@@ -11,7 +11,7 @@ export default function App () {
         <h1 className='text-center titulos'>🇺🇸 Cotizaciones 🇺🇸</h1>
         <div className='text-center update'>
           {update && (
-            <p>Ultima Actualizacion: {new Date(update).toLocaleString('es-ES')}</p>
+            <p>--Ultima Actualizacion: {new Date(update).toLocaleString('es-ES')}--</p>
           )}
         </div>
       </header>
