@@ -11,9 +11,16 @@ export default function App () {
     <LightModeProvider>
       <main>
         <header>
-          <h1 className='text-center titulos'>🇺🇸 Cotizaciones 🇺🇸</h1>
+          <div className='d-flex justify-content-between align-items-start px-3'>
+            <div className='flex-grow-1 text-center'>
+              <h1 className='m-0 titulos'>🇺🇸 Cotizaciones 🇺🇸</h1>
+            </div>
+            <div className='mt-2'>
+              <LightModeButton />
+            </div>
+          </div>
+
           <div className='text-center update'>
-            <LightModeButton />
             {update && (
               <p>--Ultima Actualizacion: {new Date(update).toLocaleString('es-ES')}--</p>
             )}

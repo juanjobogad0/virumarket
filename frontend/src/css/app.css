@@ -34,27 +34,21 @@
 }
 
 body.light {
-  --bg-dark: hsl(183 66% 85%);
-  --bg: hsl(183 100% 90%);
-  --bg-light: hsl(183 100% 95%);
+  --bg-dark: hsl(0 0% 90%);
+  --bg: hsl(0 0% 95%);
+  --bg-light: hsl(0 0% 100%);
 
-  --text: hsl(190 100% 1%);
-  --text--titulo: hsl(0, 0%, 97%);
-  --text-muted: hsl(183 100% 9%);
+  --text: hsl(0 0% 5%);
+  --text--header: hsl(0, 0%, 5%);
+  --text-muted: hsl(0 0% 50%);
 
-  --highlight: hsl(183 100% 88%);
+  --highlight: hsl(0 0% 100%);
   --border: hsl(0 0% 30%);
   --border-card: solid 1px var(--bg);
 
   --gradiant: linear-gradient(0deg, var(--bg) 95%, var(--bg-light));
   --gradiant-hover: linear-gradient(0deg, var(--bg), var(--bg-light));
 
-  --primary: hsl(183 100% 9%);
-  --secondary: hsl(357 44% 32%);
-  --danger: hsl(8 40% 42%);
-  --warning: hsl(52 82% 24%);
-  --success: hsl(154 58% 29%);
-  --info: hsl(217 42% 43%);
 }
 
 * {
@@ -64,7 +58,6 @@ body.light {
 
 html {
   scroll-behavior: smooth;
-  background: var(--bg-dark);
 }
 
 body {
@@ -101,7 +94,6 @@ margin: auto;
 margin-top: 0.5rem;
 gap: 4rem;
 }
-
 
 @media screen and (min-width:560px) {
   .titulos {

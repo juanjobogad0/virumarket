@@ -1,0 +1,28 @@
+.light-icon {
+  height: 1.56rem;
+  padding: 0px;
+  cursor: pointer;
+  filter: invert(100%) brightness(100%);
+}
+
+.dark-icon {
+  height: 1.27rem;
+  padding: 0px;
+  cursor: pointer;
+}
+
+.button-icons {
+padding: 0;
+background: none;
+border: none;
+}
+
+@media screen and (max-width:560px) {
+  .light-icon {
+  height: 1.25rem;
+}
+
+.dark-icon {
+  height: 1rem;
+}  
+}
