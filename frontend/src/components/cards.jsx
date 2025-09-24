@@ -13,13 +13,39 @@ export function Cards ({ onUpdate }) {
         setData(data.slice(0, 4))
         const fecha = data[0].fecha
         onUpdate(fecha)
-        console.log(data)
       })
       .catch(err => console.error(err))
   }, [onUpdate])
 
+  function buyButton () {
+    const datos = [...casas]
+    const bestBuy = datos.sort((a, b) => Number(b.compra) - Number(a.compra))
+    setData(bestBuy)
+    console.log(bestBuy)
+  }
+
+  function sellButton () {
+    const datos = [...casas]
+    const bestSell = datos.sort((a, b) => Number(a.venta) - Number(b.venta))
+    setData(bestSell)
+    console.log(bestSell)
+  }
+
   return (
     <>
+      <div className='d-flex justify-content-center gap-4'>
+        <button
+          className=''
+          onClick={buyButton}
+        >Mejor Compra
+        </button>
+        <button
+          className=''
+          onClick={sellButton}
+        >Mejor Venta
+        </button>
+      </div>
+
       {casas.map((item) => (
 
         <div key={item.id} className='cotizaciones-card'>

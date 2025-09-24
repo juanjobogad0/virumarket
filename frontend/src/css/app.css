@@ -83,15 +83,13 @@ min-height: 10dvh;
 }
 
 
-.quitar {
+.api-response {
 display: flex;
 flex-direction: column;
 justify-content: flex-start;
 min-height: 80dvh;
 max-width: 500px;
 margin: auto;
-
-margin-top: 0.5rem;
 gap: 4rem;
 }
 

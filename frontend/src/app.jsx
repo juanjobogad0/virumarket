@@ -28,7 +28,7 @@ export default function App () {
         </header>
 
         <Container>
-          <div className='quitar'>
+          <div className='api-response'>
             <Cards onUpdate={setUpdate} />
           </div>
 
