@@ -4,7 +4,7 @@ services:
       context: .
       target: django
     container_name: dolar_app
-    ports:
+    expose:
      - "8000:8000"
     volumes:
     - ./diario.json:/app/diario.json 

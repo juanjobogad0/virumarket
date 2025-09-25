@@ -8,8 +8,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 #DJANGO
 FROM base AS django 
 COPY . .
-EXPOSE 8000
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "cotizacion.wsgi:application"]
+EXPOSE 8003
+CMD ["gunicorn", "--bind", "0.0.0.0:8003", "cotizacion.wsgi:application"]
 
 #CRON 
 FROM base AS cron
