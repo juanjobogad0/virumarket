@@ -4,16 +4,16 @@
         "venta": "7.100"
     },
     "myd": {
-        "compra": "7000",
-        "venta": "7110"
+        "compra": "7010",
+        "venta": "7130"
     },
     "maxi": {
-        "compra": "6950",
+        "compra": "7000",
         "venta": "7090"
     },
     "fe": {
         "compra": "6.980",
         "venta": "7.120"
     },
-    "ultima_actualizacion": "24-09-2025 18:30:12"
+    "ultima_actualizacion": "25-09-2025 11:30:15"
 }

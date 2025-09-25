@@ -13,7 +13,7 @@ export default function App () {
         <header>
           <div className='d-flex justify-content-between align-items-start px-3'>
             <div className='flex-grow-1 text-center'>
-              <h1 className='m-0 titulos'>🇺🇸 Cotizaciones 🇺🇸</h1>
+              <h1 className='m-0 titulos'>🇺🇸 USD/PYG 🇺🇸</h1>
             </div>
             <div className='mt-2'>
               <LightModeButton />
@@ -33,6 +33,7 @@ export default function App () {
           </div>
 
         </Container>
+
       </main>
     </LightModeProvider>
   )

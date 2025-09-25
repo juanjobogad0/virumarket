@@ -10,7 +10,7 @@
 --text-muted: hsl(220 50% 40%);
 --text-hover: hsla(0, 0%, 95%, 0.505);
 
---border: hsl(220 100% 9%);
+--border: hsl(220 50% 40%);
 --border-card: solid 1px var(--border);
 --highlight: hsl(220 50% 60%);
 --gradiant: linear-gradient(0deg, var(--bg) 95%, var(--bg-light));
@@ -90,7 +90,7 @@ justify-content: flex-start;
 min-height: 80dvh;
 max-width: 500px;
 margin: auto;
-gap: 4rem;
+gap: 1rem;
 }
 
 @media screen and (min-width:560px) {

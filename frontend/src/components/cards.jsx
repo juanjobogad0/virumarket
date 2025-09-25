@@ -5,6 +5,7 @@ import { API_URL } from '../services/api'
 
 export function Cards ({ onUpdate }) {
   const [casas, setData] = useState([])
+  const [best, setBest] = useState(null)
 
   useEffect(() => {
     fetch(API_URL)
@@ -21,14 +22,16 @@ export function Cards ({ onUpdate }) {
     const datos = [...casas]
     const bestBuy = datos.sort((a, b) => Number(b.compra) - Number(a.compra))
     setData(bestBuy)
-    console.log(bestBuy)
+    setBest(bestBuy[0].id)
+    setTimeout(() => setBest(null), 1000)
   }
 
   function sellButton () {
     const datos = [...casas]
     const bestSell = datos.sort((a, b) => Number(a.venta) - Number(b.venta))
     setData(bestSell)
-    console.log(bestSell)
+    setBest(bestSell[0].id)
+    setTimeout(() => setBest(null), 1000)
   }
 
   return (
@@ -48,7 +51,7 @@ export function Cards ({ onUpdate }) {
 
       {casas.map((item) => (
 
-        <div key={item.id} className='cotizaciones-card'>
+        <div key={item.id} className={`cotizaciones-card ${best === item.id ? 'highlight' : ''}`}>
           <aside className='casa'>{NombresCasas[item.casa_cambio] ?? item.casa_cambio}</aside>
           <table className='text-center w-100'>
             <thead>
