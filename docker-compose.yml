@@ -86,7 +86,7 @@ services:
       - dolar-network
     depends_on:
     - db
-    - dolar
+    - api
     restart: always
 
   db:
