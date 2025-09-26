@@ -31,8 +31,8 @@ services:
     expose:
       - "8004" 
     environment:
-      - VIRTUAL_HOST=api.dolar.juanbogado.dev
-      - LETSENCRYPT_HOST=api.dolar.juanbogado.dev
+      - VIRTUAL_HOST=api.juanbogado.dev
+      - LETSENCRYPT_HOST=api.juanbogado.dev
       - LETSENCRYPT_EMAIL=juanjosebogado93@gmail.com
       - VIRTUAL_PORT=8004
     volumes:
