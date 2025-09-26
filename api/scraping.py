@@ -6,13 +6,16 @@ def obtener_cotizaciones():
   datos = {}
 
   with sync_playwright() as p:
-    browser = p.chromium.launch()
+    browser = p.chromium.launch(
+        headless=True,
+        args=["--disable-dev-shm-usage", "--no-sandbox"] 
+    )
     page = browser.new_page()
 
     ## Cambios Chaco
     try:
-        page.goto("https://www.cambioschaco.com.py/en/")
-        page.wait_for_load_state()
+        page.goto("https://www.cambioschaco.com.py/en/", timeout=90000)
+        page.wait_for_load_state("networkidle", timeout=60000)
         datos["chaco"] = {
             "compra": page.locator("#exchange-usd .purchase").first.inner_text(),
             "venta": page.locator("#exchange-usd .sale").first.inner_text(),
@@ -22,8 +25,8 @@ def obtener_cotizaciones():
 
      ## M y D
     try:
-        page.goto("https://www.mydcambios.com.py/")
-        page.wait_for_load_state()
+        page.goto("https://www.mydcambios.com.py/", timeout=90000)
+        page.wait_for_load_state("networkidle", timeout=60000)
         datos["myd"] = {
             "compra": page.locator("ul:has(img[src*='us-1.png']) li")
             .nth(1)
@@ -39,11 +42,8 @@ def obtener_cotizaciones():
 
     ## Maxi Cambios
     try:
-        page.goto(
-            "https://www.maxicambios.com.py/",
-            wait_until="domcontentloaded",
-            timeout=60000,
-        )
+        page.goto("https://www.maxicambios.com.py/",timeout=90000)
+        page.wait_for_load_state("networkidle", timeout=60000)
         tr = page.locator("tr", has_text="DÓLAR")
         datos["maxi"] = {
             "compra": tr.locator("td").nth(1).inner_text(),
@@ -54,8 +54,8 @@ def obtener_cotizaciones():
 
     ## Cambios FE
     try:
-        page.goto("https://www.fecambios.com.py/")
-        page.wait_for_load_state()
+        page.goto("https://www.fecambios.com.py/", timeout=90000)
+        page.wait_for_load_state("networkidle", timeout=60000)
         dolar_tr = page.locator("#tasks_vmo_c tr", has_text="USD")
         compra = dolar_tr.locator("td").nth(1).inner_text()
         venta = dolar_tr.locator("td").nth(2).inner_text()
