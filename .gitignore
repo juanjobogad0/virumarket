@@ -1,3 +1,5 @@
+docker-compose.dev.yml
+
 /logs
 
 # Byte-compiled / optimized / DLL files

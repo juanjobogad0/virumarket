@@ -1,0 +1,87 @@
+networks:
+  dolar-network:
+    external: false
+
+services:
+  nginx-proxy:
+    image: nginxproxy/nginx-proxy
+    container_name: nginx_proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ../certs:/etc/nginx/certs:ro
+      - ../html:/usr/share/nginx/html
+      - ../vhost.d:/etc/nginx/vhost.d
+      - ../logs/nginx:/var/log/nginx 
+      - ../nginx/custom.conf:/etc/nginx/conf.d/custom.conf:ro
+    restart: always
+    networks:
+      - dolar-network
+
+  acme-companion:
+    image: nginxproxy/acme-companion
+    container_name: nginx_acme
+    environment:
+      - DEFAULT_EMAIL=juanjosebogado93@gmail.com
+      - NGINX_PROXY_CONTAINER=nginx_proxy
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ../certs:/etc/nginx/certs
+      - ../acme:/etc/acme.sh
+      - ../html:/usr/share/nginx/html
+      - ../vhost.d:/etc/nginx/vhost.d
+    depends_on:
+      - nginx-proxy
+    restart: always
+    networks:
+      - dolar-network  
+  
+  
+  dolar:
+    build:
+      context: ../cotizacion-v2 
+    container_name: dolar_app
+    expose:
+      - "8003"
+    environment:
+      - VIRTUAL_HOST=dolar.juanbogado.dev
+      - LETSENCRYPT_HOST=dolar.juanbogado.dev
+      - LETSENCRYPT_EMAIL=juanjosebogado93@gmail.com
+      - VIRTUAL_PORT=8003
+    volumes:
+      - ../diario.json:/app/diario.json 
+    networks:
+      - dolar-network
+    depends_on:
+    - db
+    restart: always
+
+  cron-job:
+    build:
+      context: ../cotizacion-v2
+    container_name: cron
+    volumes:
+      - ./diario.json:/app/diario.json
+      - ./logs:/var/log/cron
+    networks:
+      - dolar-network
+    depends_on:
+    - db
+    - dolar
+    restart: always
+
+  db:
+    image: postgres
+    container_name: cotizacion-db    
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: cotizaciones
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: always
+
+volumes:
+  postgres_data:
