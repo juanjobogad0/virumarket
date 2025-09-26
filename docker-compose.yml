@@ -16,6 +16,7 @@ services:
       - VIRTUAL_PORT=80
     volumes:
       - ./diario.json:/app/diario.json 
+      - ../nginx/custom.conf:/etc/nginx/conf.d/custom.conf:ro
     networks:
       - nginx-proxy
     depends_on:
