@@ -39,10 +39,10 @@ services:
       - dolar-network  
   
   
-  dolar:
+  dolar-react:
     build:
-      context: ../cotizacion-v2 
-    container_name: dolar_app
+      context: ./frontend
+    container_name: dolar_react
     expose:
       - "8003"
     environment:
@@ -51,16 +51,33 @@ services:
       - LETSENCRYPT_EMAIL=juanjosebogado93@gmail.com
       - VIRTUAL_PORT=8003
     volumes:
-      - ../diario.json:/app/diario.json 
+      - ./diario.json:/app/diario.json 
     networks:
       - dolar-network
     depends_on:
     - db
     restart: always
 
+  api:
+    build: 
+      context: .
+      target: django
+    container_name: dolar_app
+    expose:
+     - "8003:8003"
+    volumes:
+    - ./diario.json:/app/diario.json 
+    networks:
+      - dolar-network    
+    depends_on:
+     - db
+    restart: always
+    
+
   cron-job:
     build:
-      context: ../cotizacion-v2
+      context: .
+      target: cron
     container_name: cron
     volumes:
       - ./diario.json:/app/diario.json
