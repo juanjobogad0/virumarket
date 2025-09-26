@@ -1,9 +1,7 @@
 networks:
-  nginx-network:
+  nginx-proxy:
     external: true
-  dolar-network:
-    external: false
-
+    
 services:
   dolar-react:
     build:
@@ -19,8 +17,7 @@ services:
     volumes:
       - ./diario.json:/app/diario.json 
     networks:
-      - nginx-network
-      - dolar-network
+      - nginx-proxy
     depends_on:
       - db
     restart: always
@@ -41,8 +38,7 @@ services:
     volumes:
       - ./diario.json:/app/diario.json 
     networks:
-      - nginx-network
-      - dolar-network
+      - nginx-proxy
     depends_on:
       - db
     restart: always
@@ -57,7 +53,7 @@ services:
       - ./diario.json:/app/diario.json
       - ./logs:/var/log/cron
     networks:
-      - dolar-network
+      - nginx-proxy
     depends_on:
       - db
       - api
@@ -74,7 +70,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
-      - dolar-network
+      - nginx-proxy
     restart: always
 
 volumes:
