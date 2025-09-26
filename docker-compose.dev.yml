@@ -1,10 +1,23 @@
 services:
-  dolar:
+
+  dolar-react:
+    build: 
+      context: ./frontend
+    container_name: dolar_react
+    ports:
+     - "5173:5173"
+    volumes:
+    - ./diario.json:/app/diario.json 
+    depends_on:
+     - db
+    restart: always
+
+  api:
     build: 
       context: .
       target: django
-    container_name: dolar_app
-    expose:
+    container_name: api
+    ports:
      - "8000:8000"
     volumes:
     - ./diario.json:/app/diario.json 
@@ -21,7 +34,7 @@ services:
       - ./diario.json:/app/diario.json
       - ./logs:/var/log/cron
     depends_on:
-    - dolar
+    - api
     - db
     restart: always
 
@@ -38,4 +51,5 @@ services:
 
 volumes:
   postgres_data:
+  
 
