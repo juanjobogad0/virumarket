@@ -1,6 +1,6 @@
 docker-compose.dev.yml
-
 /logs
+diario.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
