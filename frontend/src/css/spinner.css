@@ -1,0 +1,15 @@
+.spinner {
+  color: var(--text);
+  height: 3rem;
+  width: 3rem;
+  margin-top: 2rem;
+}
+
+.spinner-bg  {
+  min-height: 50dvh;
+  background: var(--bg-dark);
+}
+
+body.light .spinner {
+  background: var(--bg-dark);
+}

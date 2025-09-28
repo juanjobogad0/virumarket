@@ -90,13 +90,3 @@ def obtener_cotizaciones():
 obtener_cotizaciones()
 
 
-# def scrape_maxi():
-#     page.goto("https://www.maxicambios.com.py/", timeout=90000)
-#     page.wait_for_selector("tr:has-text('DÓLAR') td:nth-child(2)", timeout=30000)
-#     tr = page.locator("tr", has_text="DÓLAR")
-#     return {
-#         "compra": tr.locator("td").nth(1).inner_text().strip(),
-#         "venta": tr.locator("td").nth(2).inner_text().strip(),
-#     }
-
-# datos["maxi"] = scrapear_and_retry(scrape_maxi)

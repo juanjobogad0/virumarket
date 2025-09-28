@@ -3,7 +3,7 @@ import { NombresCasas } from '../constants/constants'
 import { useState, useEffect } from 'react'
 import { API_URL } from '../services/api'
 
-export function Cards ({ onUpdate }) {
+export default function Cards ({ onUpdate }) {
   const [casas, setData] = useState([])
   const [best, setBest] = useState(null)
 
