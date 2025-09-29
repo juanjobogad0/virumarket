@@ -1,11 +1,14 @@
 import '../css/cards.css'
+import '../css/spinner.css'
 import { NombresCasas } from '../constants/constants'
 import { useState, useEffect } from 'react'
 import { API_URL } from '../services/api'
+import { SpinnerLoading } from './spinner'
 
 export default function Cards ({ onUpdate }) {
   const [casas, setData] = useState([])
   const [best, setBest] = useState(null)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     fetch(API_URL)
@@ -16,6 +19,7 @@ export default function Cards ({ onUpdate }) {
         onUpdate(fecha)
       })
       .catch(err => console.error(err))
+      .finally(() => setLoading(false))
   }, [onUpdate])
 
   function buyButton () {
@@ -49,27 +53,30 @@ export default function Cards ({ onUpdate }) {
         </button>
       </div>
 
-      {casas.map((item) => (
+      {loading
+        ? <div className='d-flex justify-content-center align-items-center spinner-bg'>    <SpinnerLoading />    </div>
 
-        <div key={item.id} className={`cotizaciones-card ${best === item.id ? 'highlight' : ''}`}>
-          <aside className='casa'>{NombresCasas[item.casa_cambio] ?? item.casa_cambio}</aside>
-          <table className='text-center w-100'>
-            <thead>
-              <tr className='thead'>
-                <th>Compra</th>
-                <th>Venta</th>
-              </tr>
-            </thead>
-            <tbody className='tbody'>
-              <tr>
-                <td>{Number(item.compra).toLocaleString('de-DE')}</td>
-                <td>{Number(item.venta).toLocaleString('de-DE')}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        : casas.map((item) => (
 
-      ))}
+          <div key={item.id} className={`cotizaciones-card ${best === item.id ? 'highlight' : ''}`}>
+            <aside className='casa'>{NombresCasas[item.casa_cambio] ?? item.casa_cambio}</aside>
+            <table className='text-center w-100'>
+              <thead>
+                <tr className='thead'>
+                  <th>Compra</th>
+                  <th>Venta</th>
+                </tr>
+              </thead>
+              <tbody className='tbody'>
+                <tr>
+                  <td>{Number(item.compra).toLocaleString('de-DE')}</td>
+                  <td>{Number(item.venta).toLocaleString('de-DE')}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        ))}
 
     </>
 

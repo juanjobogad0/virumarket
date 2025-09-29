@@ -1,11 +1,8 @@
 import './css/app.css'
-
-// import { Cards } from './components/cards'
 import { useState, Suspense, lazy } from 'react'
 import Container from 'react-bootstrap/Container'
 import { LightModeProvider } from './context/LightModeContext'
 import { LightModeButton } from './components/LightModeButton'
-import { SpinnerLoading } from './components/spinner'
 
 const Cards = lazy(() => import('./components/cards'))
 
@@ -31,12 +28,7 @@ export default function App () {
           </div>
         </header>
 
-        <Suspense fallback={
-          <div className='d-flex justify-content-center align-items-center spinner-bg'>
-            <SpinnerLoading />
-          </div>
-      }
-        >
+        <Suspense fallback={null}>
           <Container>
             <div className='api-response'>
               <Cards onUpdate={setUpdate} />
