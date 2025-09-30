@@ -32,9 +32,9 @@ services:
     expose:
       - "8004" 
     environment:
-      # - VIRTUAL_HOST=dolar.juanbogado.dev
-      # - LETSENCRYPT_HOST=dolar.juanbogado.dev
-      # - LETSENCRYPT_EMAIL=juanjosebogado93@gmail.com
+      - VIRTUAL_HOST=dolar.juanbogado.dev
+      - LETSENCRYPT_HOST=dolar.juanbogado.dev
+      - LETSENCRYPT_EMAIL=juanjosebogado93@gmail.com
       - VIRTUAL_PORT=8004
     volumes:
       - ./diario.json:/app/diario.json 
