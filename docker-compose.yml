@@ -32,10 +32,12 @@ services:
     expose:
       - "8004" 
     environment:
+      - VIRTUAL_HOST=api.juanbogado.dev
+      - LETSENCRYPT_HOST=api.juanbogado.dev
+      - LETSENCRYPT_EMAIL=juanjosebogado93@gmail.com
       - VIRTUAL_PORT=8004
     volumes:
       - ./diario.json:/app/diario.json 
-      - ../nginx/custom.conf:/etc/nginx/conf.d/custom.conf:ro
     networks:
       - nginx-proxy
     depends_on:
