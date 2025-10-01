@@ -14,8 +14,9 @@ export default function Cards ({ onUpdate }) {
     fetch(API_URL)
       .then(res => res.json())
       .then(data => {
-        setData(data.slice(0, 4))
-        const fecha = data[0].fecha
+        const response = data.results ?? []
+        setData(response.slice(0, 4))
+        const fecha = response[0].fecha
         onUpdate(fecha)
       })
       .catch(err => console.error(err))
