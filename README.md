@@ -10,6 +10,7 @@ This is a web application designed to **scrape** and display current currency ex
 
 ### Backend
 * **Django REST Framework**: Used to build the API.
+* **PostegreSQL** 
 * **Playwright**: For web scraping.
 * **Cron**: Scheduled task runner that executes the scraping script every hour.
 * **Docker**
@@ -18,15 +19,7 @@ This is a web application designed to **scrape** and display current currency ex
 * **React**
 * **Bootstrap**
 
----
 
-### Prerequisites
-
-..
-
-### Installation and Setup
-
-..
 
 
 
