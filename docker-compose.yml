@@ -43,6 +43,8 @@ services:
     depends_on:
       - db
     restart: always
+    mem_limit: 512m
+    cpus: 0.50    
     
 
   cron-job:
@@ -59,6 +61,8 @@ services:
       - db
       - api
     restart: always
+    mem_limit: 512m
+    cpus: 0.50
 
 
   db:
