@@ -1,19 +1,19 @@
 {
     "chaco": {
-        "compra": "6.920",
-        "venta": "7.020"
+        "compra": "6.940",
+        "venta": "7.040"
     },
     "myd": {
-        "compra": "6930",
-        "venta": "7020"
+        "compra": "6940",
+        "venta": "7050"
     },
     "maxi": {
         "compra": "6900",
-        "venta": "7050"
+        "venta": "7070"
     },
     "fe": {
         "compra": "6.850",
         "venta": "7.040"
     },
-    "ultima_actualizacion": "01-10-2025 15:31:57"
+    "ultima_actualizacion": "02-10-2025 16:30:26"
 }
