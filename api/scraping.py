@@ -76,8 +76,9 @@ def obtener_cotizaciones():
         )[-1])
 
         time.sleep(1)
-
+        page.close()
         browser.close()
+        p.stop()
 
     datos["ultima_actualizacion"] = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
 
