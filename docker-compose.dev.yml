@@ -27,6 +27,8 @@ services:
     depends_on:
      - db
     restart: always
+    mem_limit: 512m
+    cpus: 0.50
 
   cron-job:
     build: 
@@ -41,6 +43,8 @@ services:
     - api
     - db
     restart: always
+    mem_limit: 512m
+    cpus: 0.50
 
   db:
     image: postgres
@@ -54,6 +58,8 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     restart: always
+    mem_limit: 512m
+    cpus: 0.50   
 
 volumes:
   postgres_data:

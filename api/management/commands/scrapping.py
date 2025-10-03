@@ -2,7 +2,6 @@ from django.core.management.base import BaseCommand
 from api.scraping import obtener_cotizaciones  
 from api.models import Cotizaciones, CasaDeCambio
 import psutil, os
-import psutil
 
 class Command(BaseCommand):
     help = "Obtiene las cotizaciones"
@@ -41,7 +40,7 @@ class Command(BaseCommand):
                     proceso.kill()       
 
             print("Memoria usada:", psutil.virtual_memory().percent)
-            print("CPU usada:", psutil.cpu_percent())   
+            print("CPU usada:", psutil.cpu_percent(interval=1))   
 
         
 

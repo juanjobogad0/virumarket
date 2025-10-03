@@ -77,6 +77,8 @@ services:
     networks:
       - nginx-proxy
     restart: always
+    mem_limit: 512m
+    cpus: 0.50    
 
 volumes:
   postgres_data:
