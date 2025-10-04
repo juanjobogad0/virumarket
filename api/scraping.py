@@ -65,7 +65,7 @@ def obtener_cotizaciones():
         datos["myd"] = scrapear_and_retry(scrape_myd, browser)
         
         def scrape_maxi(page):
-            page.goto("https://www.maxicambios.com.py/", timeout=30000)
+            page.goto("https://www.maxicambios.com.py/", wait_until="domcontentloaded", timeout=30000)
             page.wait_for_selector("tr:has-text('DÓLAR') td:nth-child(2)", timeout=30000)
             tr = page.locator("tr", has_text="DÓLAR")
             return {
@@ -94,7 +94,7 @@ def obtener_cotizaciones():
 
     return datos
 
-obtener_cotizaciones()
+
 
 
 
